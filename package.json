@@ -2,8 +2,12 @@
   "name": "iogrid-game",
   "description": "A simple demo built using SocketCluster and Phaser",
   "version": "2.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "connect": "3.0.1",
+    "dotenv": "^4.0.0",
     "express": "4.13.1",
     "lodash": "4.17.3",
     "minimist": "1.1.0",
