@@ -8,7 +8,7 @@ var healthChecker = require('sc-framework-health-check');
 var StateManager = require('../services/StateManager');
 var uuid = require('uuid');
 var ChannelGrid = require('../public/channel-grid').ChannelGrid;
-var Util = require('../services/GroupHelper');
+var GroupHelper = require('../services/GroupHelper');
 var SAT = require('sat');
 var rbush = require('rbush');
 var scCodecMinBin = require('sc-codec-min-bin');
@@ -138,7 +138,7 @@ class Worker {
     var cellPendingDeletes = {};
     var cellExternalStates = {};
 
-    var util = new Util({
+    var groupHelper = new GroupHelper({
       cellData: cellData
     });
 
@@ -157,7 +157,7 @@ class Worker {
         cellData: cellData[cellIndex],
         cellBounds: channelGrid.getCellBounds(cellIndex),
         worker: worker
-      }, util);
+      }, groupHelper);
 
       channelGrid.watchCellAtIndex(CHANNEL_INBOUND_CELL_PROCESSING, cellIndex, gridCellDataHandler.bind(null, cellIndex));
       channelGrid.watchCellAtIndex(CHANNEL_CELL_TRANSITION, cellIndex, gridCellTransitionHandler.bind(null, cellIndex));

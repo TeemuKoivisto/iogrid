@@ -3,9 +3,8 @@ const SocketCluster = require('socketcluster').SocketCluster;
 const scHotReboot = require('sc-hot-reboot');
 
 class Server {
-  constructor(env) {
-    this.env = env;
-    this.options = env.socker_cluster_options;
+  constructor(options) {
+    this.options = options;
   }
 
   start() {
@@ -13,7 +12,6 @@ class Server {
       workerController: path.join(__dirname, '/Worker.js'),
       brokerController: path.join(__dirname, '../services/Broker.js')
     })
-
     const socketCluster = new SocketCluster(options);
 
     // if (this.env.masterControllerPath) {

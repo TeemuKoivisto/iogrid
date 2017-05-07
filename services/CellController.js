@@ -48,7 +48,6 @@ var _ = require('lodash');
 var rbush = require('rbush');
 var SAT = require('sat');
 var config = require('../config/iogrid');
-// var BotManager = require('./services/bot-manager').BotManager;
 var BotManager = require('./BotManager');
 var CoinManager = require('./CoinManager');
 

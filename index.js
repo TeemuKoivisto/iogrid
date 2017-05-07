@@ -8,7 +8,7 @@ const EnvLoader = require('./services/EnvLoader');
 
 const env = EnvLoader.load(argv);
 const ServerClass = require('./server/Server');
-const Server = new ServerClass(env);
+const Server = new ServerClass(env.socket_cluster_server_options);
 
 /**
  * Will not start the server if this module hasn't been loaded directly with 'node index.js'.
